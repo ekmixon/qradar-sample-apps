@@ -40,6 +40,4 @@ def get_offense_severity(offense_id):
                                        params=params)
     offenses_json = offense_api_response.json()
     offense_json = offenses_json[0]
-    if 'severity' in offense_json:
-        return offense_json['severity']
-    return 0
+    return offense_json['severity'] if 'severity' in offense_json else 0

@@ -24,6 +24,6 @@ def index():
     with open('/opt/app-root/sudoers', 'r') as file:
         text_formatted = " "
         for line in file:
-            text_formatted += line + "</br>"
+            text_formatted += f"{line}</br>"
     file.close()
     return text_formatted

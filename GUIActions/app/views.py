@@ -24,7 +24,7 @@ def list_function():
 
     # appContext will contain the id's from the selected table row/rows
     rows = request.args.get("appContext")
-    qpylib.log("appContext=" + rows, "debug")
+    qpylib.log(f"appContext={rows}", "debug")
 
     # You can process the data and return any value here, that will be passed into javascript
     return rows

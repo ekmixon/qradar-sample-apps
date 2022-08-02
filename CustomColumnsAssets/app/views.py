@@ -37,15 +37,15 @@ def get_asset_type(asset_id):
         'filter': 'id={0}'.format(asset_id),
         'fields': 'interfaces(ip_addresses(type))'
     }
-    asset_type = 'None'
     asset_api_response = qpylib.REST(rest_action='GET',
                                      request_url='/api/asset_model/assets',
                                      params=params)
     assets_json = asset_api_response.json()
     asset_json = assets_json[0]
-    if 'interfaces' in asset_json:
-        if 'ip_addresses' in asset_json['interfaces'][0]:
-            if 'type' in asset_json['interfaces'][0]['ip_addresses'][0]:
-                asset_type = asset_json['interfaces'][0]['ip_addresses'][0][
-                    'type']
-    return asset_type
+    return (
+        asset_json['interfaces'][0]['ip_addresses'][0]['type']
+        if 'interfaces' in asset_json
+        and 'ip_addresses' in asset_json['interfaces'][0]
+        and 'type' in asset_json['interfaces'][0]['ip_addresses'][0]
+        else 'None'
+    )

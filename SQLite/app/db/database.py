@@ -44,5 +44,4 @@ def execute_schema_sql(db_name, schema_file_path):
 # Get db connection to sqlite database using the parameter provided
 def get_db_connection(db_name):
     db_path = os.path.join(DB_STORAGE_PATH, db_name)
-    conn = sqlite3.connect(db_path)
-    return conn
+    return sqlite3.connect(db_path)

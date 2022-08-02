@@ -57,8 +57,6 @@ def execute_schema_sql(db_host, db_port, db_user, db_name, schema_file_path):
 
 # Get db connection to postgres database using the parameters provided
 def get_db_connection(db_host, db_port, db_user, db_name):
-    conn = db_driver.connect(host=db_host,
-                             port=db_port,
-                             user=db_user,
-                             database=db_name)
-    return conn
+    return db_driver.connect(
+        host=db_host, port=db_port, user=db_user, database=db_name
+    )

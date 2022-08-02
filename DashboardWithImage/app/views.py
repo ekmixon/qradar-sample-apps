@@ -38,5 +38,5 @@ def getExampleDashboardItem():
             'HTML': render_template('dashboard.html')
         })
     except Exception as e:
-        qpylib.log("Error " + str(e))
+        qpylib.log(f"Error {str(e)}")
         raise

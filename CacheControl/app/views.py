@@ -29,11 +29,7 @@ def cachecontrol():
 
     nocache = request.args.get('nocache')
 
-    if nocache is not None:
-        nocache = int(nocache) * random.randint(0, 9)
-    else:
-        nocache = 0
-
+    nocache = int(nocache) * random.randint(0, 9) if nocache is not None else 0
     colour = '#{0:06X}'.format(nocache % (255 * 255 * 255))
 
     response = make_response(

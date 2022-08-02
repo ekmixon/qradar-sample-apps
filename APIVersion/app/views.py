@@ -39,12 +39,14 @@ def index():
     response = qpylib.REST('get', '/api/help/versions')
     versions = response.json()
     # Iterate over the features and determine which ones are enabled
-    enabled_features = []
-    for feature in FEATURES:
-        enabled_features.append({
+    enabled_features = [
+        {
             'name': feature['name'],
-            'enabled': is_feature_enabled(feature, versions)
-        })
+            'enabled': is_feature_enabled(feature, versions),
+        }
+        for feature in FEATURES
+    ]
+
     return render_template('index.html',
                            latest=get_latest_version(versions),
                            versions=versions,

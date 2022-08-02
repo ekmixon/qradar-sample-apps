@@ -22,10 +22,12 @@ qpylib.create_log()
 def get_ariel_databases():
     try:
         response = qpylib.REST('get', '/api/ariel/databases')
-        qpylib.log('response=' + str(response.json()))
+        qpylib.log(f'response={str(response.json())}')
         return response
     except Exception as ex:
         qpylib.log(
-            'Error calling REST api GET /api/ariel/databases: ' + str(ex),
-            'ERROR')
+            f'Error calling REST api GET /api/ariel/databases: {str(ex)}',
+            'ERROR',
+        )
+
         raise

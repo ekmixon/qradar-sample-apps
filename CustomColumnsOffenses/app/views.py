@@ -30,5 +30,5 @@ def get_offense(offense_id):
                         status=200,
                         mimetype='application/json')
     except Exception as e:
-        qpylib.log('Error calling get_offense_json_ld: ' + str(e), 'ERROR')
+        qpylib.log(f'Error calling get_offense_json_ld: {str(e)}', 'ERROR')
         raise

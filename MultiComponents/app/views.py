@@ -49,11 +49,13 @@ def sample_user_info():
 
     user = request.args.get('metaDataContext')
 
-    return json.dumps({
-        "key": "sampleUserInfo",
-        "label": "Sample User Information",
-        "value": "Sample information for a user called " + user
-    })
+    return json.dumps(
+        {
+            "key": "sampleUserInfo",
+            "label": "Sample User Information",
+            "value": f"Sample information for a user called {user}",
+        }
+    )
 
 
 @viewsbp.route('/sampleURLInformation')

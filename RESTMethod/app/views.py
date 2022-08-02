@@ -28,7 +28,7 @@ def get_ariel_databases():
         options = {}
         for db_name in ariel_databases.json():
             options[db_name] = db_name
-            qpylib.log("Ariel DB name: " + db_name)
+            qpylib.log(f"Ariel DB name: {db_name}")
         item = {
             'id': 'ArielDBs',
             'title': 'Ariel DB names',
@@ -37,6 +37,8 @@ def get_ariel_databases():
         return json.dumps(item)
     except Exception as ex:
         qpylib.log(
-            'Error calling REST api GET /api/ariel/databases: ' + str(ex),
-            'ERROR')
+            f'Error calling REST api GET /api/ariel/databases: {str(ex)}',
+            'ERROR',
+        )
+
         raise
